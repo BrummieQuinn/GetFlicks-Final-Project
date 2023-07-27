@@ -1,0 +1,57 @@
+.home-title {
+	font-family: 'Rubik', sans-serif;
+	font-size: 5rem;
+	font-weight: 700;
+	text-shadow: 0.1em 0.1em 0.2em #333;
+}
+.home-subtitle {
+	font-family: 'Rubik', sans-serif;
+	font-size: 2rem;
+	font-weight: 600;
+}
+.card-container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	width: 100%;
+	background-color: #9CC5A1;
+}
+.movie-list {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+	width: 100%;
+}
+
+.moviecard-title {
+	font-family: 'Rubik', sans-serif;
+	font-size: 1.5rem;
+	line-height: 1.2;
+	margin-bottom: 0.5rem;
+	width: 100%;
+}
+
+.movie-card {
+	display: flex;
+	flex-direction: column;
+	flex: auto;
+	align-items: center;
+	padding: 1rem;
+	width: 22rem;
+	height: auto;
+	margin: 0 auto;
+
+
+	
+}
+.movie-poster {
+	width: 100%;
+	height: auto;
+}
+
+.movie-title {
+	font-size: 1.5rem;
+	line-height: 1.2;
+	margin-bottom: 0.5rem;
+}
