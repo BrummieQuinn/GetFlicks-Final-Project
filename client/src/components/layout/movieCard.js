@@ -24,11 +24,11 @@ export default function MovieCard({ item }) {
 						<h2 className='movie-title'>{item.title}</h2>
 						<img className='movie-poster' src={item.poster} alt={item.title} />
 						<ul className='movie-info'>
-							<li className='movie-genres'>Genres:{genres.join(', ')}</li>
-							<li className='movie-year'>Year:{item.year}</li>
-							<li className='movie-price'>Price:{item.price}</li>
-							<p className='movie-hasStock'>Stock Availability:{item.hasStock}</p>
-							<li className='movie-stock'>Stock:{item.stock}</li>
+							<li className='movie-genres'>Genres: {genres.join(', ')}</li>
+							<li className='movie-year'>Year: {item.year}</li>
+							<li className='movie-price'>Price: {item.price}</li>
+							<p className='movie-hasStock'>{item.hasStock}</p>
+							<li className='movie-stock'>Stock: {item.stock}</li>
 						</ul>
 						
 						<button className='btn-add' onClick={handleAdd}>Add to cart</button>

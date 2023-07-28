@@ -34,7 +34,7 @@ const MovieList = () => {
 		<>
 			
 			<section className='movie-list'>
-				<h2 className='moviecard-title'>Selected Titles</h2>
+				<h2 className='moviecard-title'>Most Popular Titles</h2>
 				{isLoading ? (
 					<p>Loading...</p>
 				) : movies.length === 0 ? (

@@ -1,11 +1,17 @@
+:root {
+  --darkgreen: #19381f;
+  --middlegreen: #49A078;
+  --lightgreen:#9CC5A1;
+  --text: #DCE1DE;
+}
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   text-align: center; 
   font-size: 16px;
-  color: #DCE1DE;
-  background-color: #49A078;
+  color: var(--text);
+  background-color: var(--middlegreen);
   width: 100vw;
 }
   @font-face {

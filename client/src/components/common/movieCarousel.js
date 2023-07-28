@@ -44,22 +44,24 @@ export default function Carousel() {
 	return (
 		<section className='carousel-container'>
 			<h2 className='carousel-title'>Bestsellers</h2>
-			<article className='carousel' style={{ display: "block", width: "100%", textAlign: "center" }}>
+			<article className='carousel'>
 				{isLoading ? (
 					<p>Loading...</p>
 				) : movies.length === 0 ? (
 					<p>No movies found</p>
-				) : (
-							<>
-								{/* Render the movies here*/}<h3>{movies[currentIndex].title}</h3>
-            <img src={movies[currentIndex].poster} alt={movies[currentIndex].title} />
-          </>
+					) : (
+						<>
+					{/* Render the movies here*/}
+								<h3 className='carousel-movie-title'>{movies[currentIndex].title}</h3>
+								<p className='carousel-movie-year'>{movies[currentIndex].year}</p>
+								<img className='carousel-movie' src={movies[currentIndex].poster} alt={movies[currentIndex].title} />
+							</>
 					
 				)}
 			</article>
 	
-			<button className='btn-prev' onClick={handlePrev}>Previous</button>
-			<button className='btn-next' onClick={handleNext}>Next</button>
+			<button className='carousel-btn-prev' onClick={handlePrev}>Previous</button>
+			<button className='carousel-btn-next' onClick={handleNext}>Next</button>
 		</section>
 	);
 }

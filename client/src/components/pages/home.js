@@ -12,7 +12,7 @@ export default function Home() {
 		<main className='home'>
 			<section className='movie-selection'>
 				<h1 className='home-title'>Welcome to GetFlicks!</h1>
-				<p className='home-subtitle'>Your one-stop shop for all things secondhand movies!</p>
+				<p className='home-subtitle'>Your one-stop shop for all things second-hand Bluray & DVD's!</p>
 				<Carousel />
 				<div className="card-container">
 					

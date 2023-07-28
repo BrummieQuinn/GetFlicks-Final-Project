@@ -4,6 +4,7 @@ export default function Layout() {
 	
 	return (
 		<>
+			<header className="nav-container">
 			<nav className="navbar">
 				<ul className="nav">
 					<li className="nav-item">
@@ -17,6 +18,7 @@ export default function Layout() {
 					</li>
 				</ul>
 			</nav>
+			</header>
 		
 
 			<Outlet />
