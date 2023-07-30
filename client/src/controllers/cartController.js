@@ -1,9 +1,8 @@
 // Local Storage shopping cart that uses the item schema from models/item.js
 // imports from react
-import { useContext, useState, useReducer, createContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import cartContext from "../contexts/cartContext";
 
-const { logRoles } = require("@testing-library/react");
 const moviesController = require('../../../serverside/moviesControllers');
 
 function addProduct(product) {
@@ -170,6 +169,11 @@ function removeProduct(title) {
     // Log the title of the removed product to the console
     console.log('Product removed:', title);
 }
+const calculateTotalPrice = (cart) => {
+    const totalPrice = cart.reduce((total, item) => {
+        return total + item.price * item.cartQuantity
+    }, 0);
+    return totalPrice.toFixed(2);
 
 // local storage shopping cart that uses the item schema from models\item.js imports from react
 // React useContext and useState hooks for shopping cart
@@ -229,11 +233,17 @@ export function CartProvider({ children }) {
     // Set the cart state to an empty array
     setCart([]);
     localStorage.setItem('cart', JSON.stringify([]));
-  };
+    };
+    ``
+
+    const getTotalPrice = () => {
+        return calculateTotalPrice(cart)
+    };
+    
 
   // Provide the cart and cart-related functions to the children components
   return (
-    <cartContext.Provider value={{ cart, addToCart, removeFromCart, emptyCart }}>
+    <cartContext.Provider value={{ cart, addToCart, removeFromCart, emptyCart, getTotalPrice }}>
       {children}
     </cartContext.Provider>
   );
@@ -261,5 +271,7 @@ module.exports = {
 	quantityIncrease,
 	quantityDecrease,
 	emptyCart,
-	removeProduct
+    removeProduct,
+    useCart,
+    getTotalPrice
 }

@@ -1,15 +1,28 @@
 import { useContext } from 'react';
-import {MoviesContext}  from '../../contexts/moviesContext';
+import { MoviesContext } from '../../contexts/moviesContext'
+import CartContext from '../../contexts/cartContext'
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function MovieCard({ item }) {
 	const { addMovies, removeMovies } = useContext(MoviesContext);
+	const { addToCart, removeFromCart } = useContext(CartContext);
+    const history = useNavigate();
 	
 	const handleAdd = () => {
 		addMovies(item);
+		history.push({
+			pathname: '/cart',
+			state: { action: 'add', item: item }
+		});
 	};
 	const handleRemove = () => {
-		removeMovies(item);
+		removeMovies(item)
+		history.push({
+			pathname: '/cart',
+			state: { action: 'remove', item: item }
+		})
 	};
 
 	 const genres = item.genres || [];

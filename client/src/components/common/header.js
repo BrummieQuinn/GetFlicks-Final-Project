@@ -17,7 +17,7 @@ export default function Header() {
 							></input>
 						</li>
 						<li className="nav-item">
-							<Link to="/basket b">Basket</Link>
+							<Link to="/cart">Basket</Link>
 						</li>
 					</ul>
 				</nav>

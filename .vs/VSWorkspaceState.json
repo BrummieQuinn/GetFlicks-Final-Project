@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\src",
+    "\\client\\src\\components",
+    "\\client\\src\\components\\common",
+    "\\client\\src\\components\\layout",
+    "\\client\\src\\components\\pages",
+    "\\serverside",
+    "\\serverside\\models"
+  ],
+  "SelectedNode": "\\client\\src\\components\\pages\\cart.js",
+  "PreviewInSolutionExplorer": false
+}
