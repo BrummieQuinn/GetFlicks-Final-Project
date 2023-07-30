@@ -1,0 +1,48 @@
+.nav-container {
+	background-color: var(--darkgreen);
+	margin: 1.25rem 0 1.25rem 1.25rem;
+	width: 100%;
+}
+.nav {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	width: 100%;
+	
+}
+.nav-item {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	align-content: stretch;
+	justify-content: center;
+	font-family: 'Rubik', sans-serif;
+	font-size: 3rem;
+		
+}
+.nav-item input {
+	width: 100%;
+	border-style: none;
+}
+.nav-item a {
+	color: var(--text);
+}
+.search-box {
+	height: 2rem;
+	border-radius: .75rem;
+}
+@media (min-width: 200px) and (max-width: 767px) {
+	.nav-container {
+		margin-right: 1.75rem;
+		margin-left: .40rem;
+	
+	}
+	.nav {
+		flex-flow: column wrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+		
+	}
+}

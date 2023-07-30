@@ -4,6 +4,7 @@
   --lightgreen:#9CC5A1;
   --text: #DCE1DE;
 }
+/* Global styles */
 body {
   box-sizing: border-box;
   margin: 0;
@@ -14,6 +15,7 @@ body {
   background-color: var(--middlegreen);
   width: 100vw;
 }
+
   @font-face {
     font-family: 'Rubik';
     font-style: normal;
@@ -39,4 +41,17 @@ body {
   }
   ul {
     list-style: none;
+  }
+  @media (max-width: 767px) {
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .App {
+      width: 100vw;
+      height: 100%;
+      
+    }
   }

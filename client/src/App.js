@@ -1,25 +1,37 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
-import Layout from './components/layout/Layout';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomeLayout from './components/layout/homeLayout';
+// import Main Layout from './components/layout/mainLayout';
 import Home from './components/pages/home';
 // import Cart from './pages/cart';
 // import Order from './pages/order';
-// import NotFound from './pages/404';
+// import Search from './pages/search';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Layout />
+      <HomeLayout>
         <Routes>
-          <Route path="/" index element={<Home />} />
-        </Routes> 
-    
-    
+            <Route path="/" index element={<Home />} />
+            {/* <Route path="/search" element={
+              <MainLayout>
+              <Route path="/" element={<search />} />
+              </MainLayout>
+             }
+             />
+             <Route path="/cart" element={
+              <MainLayout>
+              <Route path="/" element={<Cart />} />
+              </MainLayout>
+             } 
+             /> */}
+        </Routes>
+      </HomeLayout>
+
       </div>
-     <Outlet />
-    
-    </Router >      
-  );
+
+    </Router >
+    );
 }
 export default App;
