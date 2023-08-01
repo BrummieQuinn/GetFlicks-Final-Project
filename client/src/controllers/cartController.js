@@ -1,9 +1,9 @@
 // Local Storage shopping cart that uses the item schema from models/item.js
 // imports from react
-import { useContext, useState } from "react"
-import cartContext from "../contexts/cartContext"
+import { useContext, useState, useEffect } from "react";
+import cartContext from "../contexts/cartContext";
 
-import MoviesControllers from '../../../serverside/moviesControllers'
+
 
 // Define a function called "useCart" that returns the cart context.
 export function useCart() {
@@ -16,7 +16,7 @@ export function useCart() {
     }
 
     // Return the cart context.
-    return context
+    return context;
 }
 
 // local storage shopping cart that uses the item schema from models\item.js imports from react
@@ -24,6 +24,10 @@ export function useCart() {
 export function CartProvider({ children }) {
     // Retrieve cart from localStorage or create an empty cart
     const [cart, setCart] = useState(getCart())
+
+    useEffect(() => {
+        setCart(getCart());
+    }, []);
 
     // Add a product to the cart
     const addToCart = (product) => {
@@ -59,15 +63,15 @@ export function CartProvider({ children }) {
     
     // retrieve data for multiple movies from the mongoDB database
 
-    let movies = MoviesControllers.get_items()
+    // let movies = MoviesControllers.get_items()
 
-    // iterate through the movies array and create a new product object for each movie using for each loop
-    movies.forEach(movieData => {
-        let product = createProductFromDocument(movieData)
+    // // iterate through the movies array and create a new product object for each movie using for each loop
+    // movies.forEach(movieData => {
+    //     let product = createProductFromDocument(movieData)
 
-        // add the product to the cart using the addProduct() function
-        addProduct(product)
-    });
+    //     // add the product to the cart using the addProduct() function
+    //     addProduct(product)
+    // });
     // Remove a product from the cart
     const removeFromCart = (title) => {
         // Create a new copy of the cart array
@@ -152,31 +156,31 @@ function getCart() {
     }
 }
 
-// Function to create a new product object from a document in the MongoDB database 
-function createProductFromDocument(document) {
-    // Log the document being used to create the product
-    console.log("Creating product from document:", document)
+// // Function to create a new product object from a document in the MongoDB database 
+// function createProductFromDocument(document) {
+//     // Log the document being used to create the product
+//     console.log("Creating product from document:", document)
 
-    // Destructure the necessary properties from the document
-    const { title, genres, year, poster, price, hasStock, stock } = document
+//     // Destructure the necessary properties from the document
+//     const { title, genres, year, poster, price, hasStock, stock } = document
 
-    // Create a new product object with the extracted properties
-    const product = {
-        title,
-        genres,
-        year,
-        poster,
-        price,
-        hasStock,
-        stock
-    }
+//     // Create a new product object with the extracted properties
+//     const product = {
+//         title,
+//         genres,
+//         year,
+//         poster,
+//         price,
+//         hasStock,
+//         stock
+//     }
 
-    // Log the created product
-    console.log("Created product:", product)
+//     // Log the created product
+//     console.log("Created product:", product)
 
-    // Return the created product
-    return product
-};
+//     // Return the created product
+//     return product
+// };
 
 
 // function for users to update quantity of a product in the cart using the movie title as the argument
@@ -266,16 +270,14 @@ const calculateTotalPrice = (cart) => {
     }, 0)
     return totalPrice.toFixed(2)
 
-}; 
-
-module.exports = {
+}
+export {
     addProduct,
     getCart,
     quantityIncrease,
     quantityDecrease,
     emptyCart,
     removeProduct,
-    useCart,
     calculateTotalPrice
 };
    

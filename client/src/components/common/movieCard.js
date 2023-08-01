@@ -1,28 +1,48 @@
-import { useContext } from 'react';
-import { MoviesContext } from '../../../src/contexts/moviesContext'
+import {  useEffect, useState } from 'react';
+import { useCart } from '../../controllers/cartController';
 import { useNavigate } from 'react-router-dom';
 
 
 
 export default function MovieCard({ item }) {
-  const { addMovies, removeMovies } = useContext(MoviesContext);
   const navigate = useNavigate();
-
+  const { cart, addToCart, removeFromCart } = useCart();
+  const [cartChanged, setCartChanged] = useState(false);
   const handleAdd = () => {
-    console.log('Adding movies:', item);
-    addMovies(item);
+    if (item.stock === 0) {
+      console.log('Item is out of stock');
+
+    } else {
+      console.log('Adding movies:', item);
+   
+   
+    addToCart(item);
     console.log('Redirecting to /cart with state:', { action: 'add', item: item });
-    navigate('/cart', { state: { action: 'add', item: item } });
-};
+      navigate('/cart', { state: { action: 'add', item: item } });
+    }
+  };
 
   const handleRemove = () => {
     console.log('Removing movies:', item);
-    removeMovies(item);
+    removeFromCart(item);
     console.log('Redirecting to /cart with state:', { action: 'remove', item: item });
     navigate('/cart', { state: { action: 'add', item: item } });
   };
-  
-    
+
+  // intialise the cart state from local storage
+  // save the cart to local storage
+  useEffect(() => {
+    if (cartChanged) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+      setCartChanged(false);
+    }
+  }, [cart, cartChanged]);
+
+
+  console.log('cart', cart);
+  console.log('item', item);
+
+   
 
   const genres = item.genres || [];
 
