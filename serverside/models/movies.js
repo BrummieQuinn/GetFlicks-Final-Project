@@ -39,6 +39,11 @@ const MoviesSchema = new Schema({
     stock: {
         type: Number,
         required: true
+    },
+
+    plot: {
+        type: String,
+        required: true
     }
 });
 

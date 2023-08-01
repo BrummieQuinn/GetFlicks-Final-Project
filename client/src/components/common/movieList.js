@@ -1,5 +1,6 @@
 import  { useEffect, useState } from 'react';
 import MovieCard from './movieCard';
+
 import axios from 'axios';
 
 const MovieList = () => {
