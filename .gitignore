@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-server_side/node_modules/
+serverside/node_modules/
 
 # misc
 /.vs
