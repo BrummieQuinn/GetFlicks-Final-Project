@@ -64,7 +64,7 @@ const Cart = () => {
                 <h2 className="basket-item-title">{item.title}</h2>
                 <img className='movie-poster' src={item.poster} alt={item.title} />
                 <h3>{item.price}</h3>
-                <p className="basket-total">Total(£): {getTotalPrice()} GBP</p>
+                <p className="basket-total">Total(£): {getTotalPrice()} GBP</p> {/**Need to fix the constant rendering of price on purchase confirm */ }
                 <button type="button" className="btn-purchase" onClick={() => handleBuyClick(item)}>Buy</button>
                 <Modal show={showModal} onClose={() => setShowModal(false)} onConfirm={handleConfirmPurchase} onCancel={handleCancelPurchase} item={itemToPurchase} />
             </div>

@@ -1,3 +1,4 @@
+// modal pop up on purchase confirmation
 export default function Modal({ item, onConfirm, onCancel }) {
     return (
       <div className="modal-container">
